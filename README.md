@@ -8,9 +8,8 @@ These active enzymes are produced in inactive form by the senescent fibroblasts 
 The structure of the repository is the following:
 - parameters.m: contains the parameters values.
 - reduced_system/: contains codes for the simulations of the reduced system.
-  + fun_parameters.m: contains the definitions of the important parameters of the model.
-  + fun_Sim_ReducedModel.m: contains the functions to simulate the PDE model and the ODE system.
-  + Main_Plot.m: is the main script. 
+- full_system/: contains the scripts and functions to simulate the full system of equations
+- sensitivity_analysis/: this folder contains the cripts and function to run the sensitivity analysis. To run the main script, please see the instructions at the beginning of SFs_SensitivityAnalysis.m
 
 ## How to use
 ### Simulating the model
