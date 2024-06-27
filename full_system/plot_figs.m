@@ -1,8 +1,12 @@
-%% Script figures for the article
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Created on Tue Nov 15 2023
+% Script figures for the article.
+% @author: Alexandre Poulain, Chiara Villa
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 close all
 savefigs = 1; % yes we save the figs in files in the directory specified   
 dynamic_plot = 0; % if yes plot figures at all time steps
-plotpath = '.' % Please enter here a valid path
+plotpath = '../results/results_full/' % Please enter here a valid path
 
 
 tunit = 60*60; % Time unit for plotting (s): 1 hour

@@ -1,4 +1,8 @@
-%%%% Baseline parameter set
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Created on Thu Oct 23 2023
+% Function to load the parameters
+% @author: Alexandre Poulain, Chiara Villa
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [gamma,Km,rM,k0,km0,k1,k2,k3,km1,km2,beta_t,beta_ta,beta_m,...
     beta_d,beta_p,beta_a,beta_tp,Mmax,rho0,alpha_m,D_t,D_p,width_BM,...
@@ -72,10 +76,8 @@ sph_p = cp*beta_p;
 
 % Senescent fibroblasts
 if test == 3
-    %rt = 2.22e-6; % TIMP-2 production by SF
-    %rp = 2*4.14e-4; % proMMP-2 production by SF
-    rt = 0.01*sph_t; % TIMP-2 production by SF
-    rp = 0.08*sph_p; % proMMP-2 production by SF
+    rt = 2.22e-6; % TIMP-2 production by SF
+    rp = 2*4.14e-4; % proMMP-2 production by SF
 else
     rt = 0;
     rp = 0;

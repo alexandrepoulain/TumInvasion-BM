@@ -1,3 +1,9 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Created on Thu Oct 23 2023
+% Function that tests the stability of the steady states of the reduced system.
+% @author: Alexandre Poulain, Chiara Villa
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 function [] = test_stability(kappa_p,kappa_t,k1,k2,k3,km1,km2,Km,gamma,rM...
     ,Mmax,ct,cp,ca,cd, S_t , S_p, rho0, alpha_t,alpha_p,width_BM)
 %TEST_STABILITY Tests the conditions that are derived in the article 

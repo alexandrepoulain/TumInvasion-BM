@@ -1,7 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Created on Tue Nov 15 2023
-% Script to simulate the full system. The conjunctive tissue is in
-% 2D. the BM is the top boundary. 
+% Script to simulate the full system and change the position of the SF.
 % @author: Alexandre Poulain, Chiara Villa
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 clc
@@ -46,8 +45,11 @@ sph_p_vec = logspace(-7,0,100);
 
 %posSF_vec = linspace(0,L,100);
 rt = 0
+posSF = 0.005;
+length(sph_t_vec)
 
 for iii=1:length(sph_t_vec)
+    iii
     for jjj=1:length(sph_p_vec)
         sph_t = sph_t_vec(iii);
         %posSF = posSF_vec(jjj);
@@ -142,7 +144,7 @@ elseif test ==2
 elseif test == 3
     test_case_str = "tumor+SF";
 end
-plotpath = '../article_reduced_version/figures/full/1D/'
+plotpath = '../results/full/1D/'
 fname = strcat(test_case_str , '_MBdens_fnof_spht_sphp.eps');
 fname = strcat(plotpath,fname)
 hfig = figure;  % save the figure handle in a variable

@@ -1,4 +1,10 @@
-%% Script figures for the article
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Created on Tue Nov 15 2023
+% generate figures. To run after the main script
+% @author: Alexandre Poulain, Chiara Villa
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 close all
 savefigs = 0; % yes we save the figs in files in the directory specified   
 plotpath = '.' % please enter here a valid path

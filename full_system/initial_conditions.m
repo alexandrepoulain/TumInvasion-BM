@@ -1,3 +1,9 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Created on Tue Nov 15 2023
+% function to load initial conditions
+% @author: Alexandre Poulain, Chiara Villa
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 function IC = initial_conditions(Nx, test,dim)
 % This function computes the initial conditions dependding on the test and
 % the dimension of Omega

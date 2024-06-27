@@ -1,3 +1,9 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Created on Tue Nov 15 2023
+% function to create the diffusion matrix 
+% @author: Alexandre Poulain, Chiara Villa
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 function [L] = diffusion_matrix(Nx,dx, BC_type)
     % This function computes the discrete laplacian in matrix form
     % It is assumed that the size of the cntrol volumes are already divided
