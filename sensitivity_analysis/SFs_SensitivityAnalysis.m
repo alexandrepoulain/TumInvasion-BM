@@ -43,18 +43,26 @@ format long
 
 %% %%%%%%%%%%%  GENERAL SA SET UP: MODEL AND INPUT  %%%%%%%%%%%%%%%%%%%%%%%
 myfun  = 'PDE_solve';
+
+
 %%% Define output function 
 addpath('../');
+
+%%% Add path to the SAFE package
+addpath('../../../../SAFE-matlab/sampling');
+addpath('../../../../SAFE-matlab/EET'); 
+addpath('../../../../SAFE-matlab/visualization');
+
+addpath('../full_system/1D/');
 
 %%% Choose test scenario (healthy, tumour, tumour_SF)
 test_case = 3; % heatlthy = 1, tumor = 2, tumor+SF = 3
 
 %%% Choose which PDE system to solve ('full' = 1 or 'reduced' = 2)
-system = 2;
+system = 1;
 
 %%% Choose parameters to test 
-par_case = 1; % 1= reaction rates, 2 = rest of the parameters, 
-% 3 = most relevant parameters of A-B, for FAST AND VBSA (time consumming). 
+par_case = 2; % 1= reaction rates, 2 = rest of the parameters, 
 
 %%% compute model or load results
 compute_mod = 1; % 1 to compute the model
@@ -121,22 +129,6 @@ elseif par_case == 2 % rest of the parameters
     else
         error('Wrong system selected, choices: 1 = full, 2 = reduced');
     end
-        
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%  INPUT C) most relevant parameters of A-B, for FAST AND VBSA  %%%%%%
-elseif par_case == 3  
-    % Baseline parameter values
-    % y = [cd, k0, km0, k1, km1, k2, km2, k3, beta_t,beta_ta,beta_m,beta_d,beta_p,...
-    %    beta_a,beta_tp,rho0,alpha_m,D_t,D_p,kappa_t,kappa_p,sph_t,sph_p,rt,rp,pos]; 
-    y = [k2,alpha_m,D_t,D_p,rt,rp,pos]; 
-    
-    % Parameter names
-    % Y_labels = {'\bar{c}_d', '$k_0$','$k_{-0}$','$k_1$','$k_{-1}$','$k_2$','$k_{-2}$',...
-    %     '$k_3$','$\beta_t$','$\beta_{ta}$','$\beta_m$','$\beta_d$','$\beta_p$',...
-    %     '$\beta_a$','$\beta_{tp}$','$\rho_0$','$\alpha_m$','$D_t$','$D_p$',...
-    %     '$\kappa_t$','$\kappa_p$','$s^{ph}_t$','$s^{ph}_p$','$r_t$','$r_p$',...
-    %     '$x_i^{SF}$'}; 
-    Y_labels = {'$k_2$','$\alpha_m$','$D_t$','$D_p$','$r_t$','$r_p$','$x_1^{SF}$'}; 
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -185,7 +177,6 @@ end
 
 %%%%%%%%%%%%  SAMPLING (One-at-a-time for Elementary effects)  %%%%%%%%%%%%
 
-addpath('../../SAFE-matlab/sampling');
 
 r = 500;   % Number of Elementary Effects
 SampStrategy = 'rsu'; % Latin Hypercube (Alt: random uniform 'rsu') or lhs
@@ -208,8 +199,7 @@ end
 
 %%%%%%%%%%%%%%%   POST-PROCESSING: Elementary Effects Test  %%%%%%%%%%%%%%%%
 %%
-addpath('../../SAFE-matlab/EET'); 
-addpath('../../SAFE-matlab/visualization');
+
 
 % load(strcat('SA_saved/SA_EE_',system,'_r',num2str(r),'.mat'),'r','Y','Z')
 

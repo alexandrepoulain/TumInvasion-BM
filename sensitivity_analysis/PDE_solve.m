@@ -48,7 +48,7 @@ if par_case == 1
         beta_t = y(6);
         beta_p = y(7);
         cd = y(8);
-    %IC(end-8) = cd;
+
     elseif system == 1
         k0 = y(1);
         km0 = y(2);
@@ -103,15 +103,6 @@ elseif par_case == 2
         Km = y(13);
         posSF = y(14);
     end
-% 
-% elseif par_case == 3 % For FAST and VBSA
-%     k2 = y(1);
-%     alpha_m = y(2);
-%     D_t = y(3);
-%     D_p = y(4);
-%     rt = y(5);
-%     rp = y(6);
-%     posSF = y(7);
     
 else        
     error(['\n WARNING: specify which block of parameters to study ' ...
@@ -161,16 +152,6 @@ elseif dim == 2  % pos is a matrix, nb line is the sumber of SFs, size 2 is 2
             end
         end
     end
-    % recast S_t and S_p in array form
-%     S_t_arr = zeros(Nx*Nx,1);
-%     S_p_arr = zeros(Nx*Nx,1);
-%     
-%     for ii = 1:size(S_t,1)
-%         S_t_arr((ii-1)*Nx+1:(ii)*Nx) = S_t(ii,:);
-%         S_p_arr((ii-1)*Nx+1:(ii)*Nx) = S_p(ii,:);
-%     end
-%     S_t = S_t_arr;
-%     S_p = S_p_arr;
 end
 
 
@@ -218,9 +199,9 @@ Mas = M_BM(end);
 
 
 if M_BM(end) < 0 | isnan(M_BM(end))
-    'problem'
+    error('problem')
     M_BM(end)
-    quit
+    
 else
     'OK'
     M_BM(end)
