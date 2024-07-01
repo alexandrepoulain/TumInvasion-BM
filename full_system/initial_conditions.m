@@ -7,16 +7,11 @@
 function IC = initial_conditions(Nx, test,dim)
 % This function computes the initial conditions dependding on the test and
 % the dimension of Omega
+Mmax = 62.5e3; % nM
 if dim == 1
-    M = 50.0e3; % BM density nM
-    cm = 0.0; % MT1-MMP monomer concentration
-    if test == 1
-        cd = 1e-4;
-    elseif  test == 2 | test == 3
-        cd = 1e-4; % in nmol/mm^3
-    else
-        error('Wrong test');
-    end
+    M = Mmax; % BM density nM
+    cm = 0.14; % MT1-MMP monomer concentration
+    cd = 0.14; 
     ct = 9.6; % TIMP-2
     cp = 18.0; % ProMMP-2
     cta = 17; % TIMP-2/active MMP-2
@@ -39,7 +34,7 @@ elseif dim == 2
     c3_BM = zeros(Nx,1);% MT1-MMP/TIMP-2/proMMP-2
     ctp_BM = 6.72*zeros(Nx,1); % TIMP-2/proMMP-2
     cta_BM = 17*ones(Nx,1); % TIMP-2/active MMP-2
-    M = (50.e3)*ones(Nx,1); % BM density
+    M = Mmax*ones(Nx,1); % BM density
     
     ct_conj = max(ct_BM) * ones(Nx^2,1); % in conjunctive tissue
     cp_conj = max(cp_BM) * ones(Nx^2,1);
@@ -50,3 +45,4 @@ else
 end
 
 end
+
