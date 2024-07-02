@@ -10,18 +10,18 @@ These active enzymes are produced in inactive form by the senescent fibroblasts 
 
 The structure of the repository is the following:
 - parameters.m: contains the parameters values.
-- reduced_system/: contains codes for the simulations of the reduced system.
-- full_system/: contains the scripts and functions to simulate the full system of equations
-- sensitivity_analysis/: this folder contains the cripts and function to run the sensitivity analysis. To run the main script, please see the instructions at the beginning of SFs_SensitivityAnalysis.m
+- reduced_system/: contains codes for the simulations of the reduced system (in the article the equations for the teduced system are (3.1)-(3.4) coupled with (2.12)-(2.13) and transmission conditions (2.14) and (2.18)-(2.19)).
+- full_system/: contains the scripts and functions to simulate the full system of equations (in the article the equations corresponding to the full system are (2.1)-(2.13) with the transmission conditions (2.14) and (2.18)-(2.19)).
+- sensitivity_analysis/: this folder contains the scripts and function to run the sensitivity analysis. To run the main script, please see the instructions at the beginning of SFs_SensitivityAnalysis.m
 
 All the scripts and functions have been executed using MATLAB version '9.11.0.1769968 (R2021b)'. 
-The SAFE package used to perform our sensituvity analysis was the release SAFEmatlab v1.2. 
+The SAFE package used to perform our sensitivity analysis was the release SAFEmatlab v1.2. 
 
 ## How to use
 ### Simulating the model
 For the reduced and full systems, the code is run from the main scripts "script_reduced_system.m" and "script_full_system.m" respectively.
 In the beginning of these scripts, the user must choose:
-- the dimension of the conjunctive tissue dim = 1 or 2. The BM will have the dimension dim-1. 
+- the dimension of the conjunctive tissue dim = 1 or 2. The BM will have the dimension dim-1. (WARNING: the reduced system is only implemented for 1D)
 - the test: if test = 1 it corresponds to the healthy test case (no tumor cells nor SF), 
 test = 2 corresponds to the tumor test case (tumor cells in the BM and no SF), 
 test = 3 corresponds to the tumor + SF case (positive tumor cells density and SF in the conjunctive)
@@ -31,7 +31,7 @@ The scripts are composed of the following sections:
 - parameter values (in this section there is a call to the parameters.m function). 
 After this call, there is the part to prepare the source terms and to include the effect of the SFs in the model. 
 - initial conditions. Here is a call to the initial_conditions.m file. It prepares the vectors corresponding the initial concentrations of enzymes and densities.
-- Stability test for the reduced system. It tests if the stability of the ODE system (see article's supplementary information)
+- Stability test for the reduced system. It indicates if from the initial conditions and parameter values we expect the rupture of the BM.  
 - Call the main function to solve the system. 
 
 If you want to obtain plots of the quantities, run the plot_figs.m script after the completion of the main script. 
@@ -39,6 +39,11 @@ At the beginning of the plot_figs.m script, you can select if you want to save t
 
 
 ### How to replicate the images of the article
+
+If you want to save the figures after running the main scripts (script_reduced_system.m or script_full_system.m), you need to select a valid path for the "results" folder.
+Please change the variable "plotpath" to do so. 
+ 
+You can also replicate the figures of the article: 
 
 - Figures 3 and S1 can be replicated running the script "reduced_system/plot_steady_state.m".
 - Figures 4 and 5 can be replicated using script "Script_Figure_4_5.m"

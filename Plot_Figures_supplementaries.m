@@ -13,17 +13,32 @@ Nx = 50;
 L = 0.1;
 dim = 2;
 
-Figure_to_replicate = "S5" % choices "S3", "S4", "S5" 
+Figure_to_replicate = "S3" % choices "S3", "S4", "S5" 
 
 if Figure_to_replicate == "S3"
     test = 1;
-    load('./Saved_data/Data_test1_2D_Tf7.mat')
+    try
+        load('./Saved_data/Data_test1_2D_Tf7.mat')
+    catch
+        error("You need to first run the script 'Script_Figure_4_5.m'" + ...
+            " with the same parameters as this file")
+    end
 elseif  Figure_to_replicate == "S4"
     test = 2;
-    load('./Saved_data/Data_test2_2D_Tf7.mat')
+    try
+        load('./Saved_data/Data_test2_2D_Tf7.mat')
+    catch
+        error("You need to first run the script 'Script_Figure_4_5.m'" + ...
+            " with the same parameters as this file")
+    end
 else 
     test = 3;
-    load('./Saved_data/Data_test3_2D_Tf7.mat')
+    try
+        load('./Saved_data/Data_test3_2D_Tf7.mat')
+    catch
+        error("You need to first run the script 'Script_Figure_4_5.m'" + ...
+            " with the same parameters as this file")
+    end
 end
 
 %% Parameters SF position (case: 1 SF, check consistency with 'parameters.m')

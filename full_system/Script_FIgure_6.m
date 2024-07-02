@@ -8,10 +8,6 @@ clear all
 close all
 format long ;
 
-
-
-
-
 addpath('../') % add path for function parameters
 
 dim = 2;   % Dimension of the CT (dimension of the BM will be dim-1)

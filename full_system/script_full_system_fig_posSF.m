@@ -14,6 +14,14 @@ dim = 1; % the dimension of the conjunctive tissue (dimension fo the BM will be 
 test = 3; % % healthy = 1, tumor = 2, tumor+SF = 3
 plot_SF = 0;
 
+if dim == 1
+    addpath('./1D/') 
+elseif dim == 2
+     addpath('./2D/') 
+else
+    error('Wrong dimension, select 1 or 2')
+end
+
 % Spatial discretization of conjunctive tissue
 L = 0.1;   % Size of conjunctive tissue (length in dm)
 Nx = 40; % Number of spatial grid points (in each direction if dim == 2)

@@ -4,9 +4,16 @@
 % @author: Alexandre Poulain, Chiara Villa
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 close all
-savefigs = 1; % yes we save the figs in files in the directory specified   
-dynamic_plot = 0; % if yes plot figures at all time steps
+savefigs = 0; % yes we save the figs in files in the directory specified   
+dynamic_plot = 1; % if yes plot figures at all time steps
 plotpath = '../results/results_full/' % Please enter here a valid path
+
+
+if dim == 2
+    dynamic_plot = 0 % we disable the dynamical plot for 2D for readability
+    % You can comment this part if you are interested to see the time
+    % evolution
+end
 
 
 tunit = 60*60; % Time unit for plotting (s): 1 hour
@@ -185,10 +192,12 @@ if dim == 1
         hold off;
         grid on;
         xlabel('Conjunctive tissue $x$ (dm)')
-        ylabel('density (nM)')
+        ylabel('concentration (nM)')
+        title_str = sprintf('t = %f hours', t_BM(ii)/(60*60));
+        title(title_str)
         xlim([0, max(x)])
-        ylim([0 25])
-        %title(t_BM(ii)/tunit)
+        ylim([0 max(max(ct_conj, [], 'all'),max(cp_conj, [], 'all'))])
+
         picturewidth = 20; % set this parameter and keep it forever
         hw_ratio = 0.8; % feel free to play with this ratio
         set(findall(hfig,'-property','FontSize'),'FontSize',21) % adjust fontsize to your document
@@ -206,7 +215,7 @@ if dim == 1
             fname = strcat(test_case_str , '_concentrations_conjunctive.eps');
             fname = strcat(num2str(t_BM(ii)/tunit),fname);
             fname = strcat(plotpath,fname);
-            if savefigs == "yes"
+            if savefigs
                 saveas(hfig,fname, 'epsc')
             end
     

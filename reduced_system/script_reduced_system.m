@@ -11,8 +11,12 @@ format long ;
 
 addpath('../')
 
-dim = 1; % the dimension of the conjunctive tissue (if healthy case, always 1d)
+dim = 1; % DO NOT change, reduced system simulations are always in 1D
 test = 2; % test case "healthy" = 1 , "tumor" = 2, 'tumor+ SF' = 3
+
+if dim ~= 1
+    error('Wrong dimension, select dim = 1')
+end
 
 % Spatial discretization of conjunctive tissue
 L = 0.1;   % Size of conjunctive tissue (length in dm)

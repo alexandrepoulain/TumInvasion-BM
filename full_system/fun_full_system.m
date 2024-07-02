@@ -8,14 +8,18 @@
 function fun_full_system(dim,test,Nx,Tf,L)
 
 addpath('../') % add path for function parameters
-
-% dim = 2; % the dimension of the conjunctive tissue (dimension fo the BM will be dim-1)
-% test = 2; % % healthy = 1, tumor = 2, tumor+SF = 3
 plot_SF = 1;
 
+if dim == 1
+    addpath('./1D/') 
+elseif dim == 2
+     addpath('./2D/') 
+else
+    error('Wrong dimension, select 1 or 2')
+end
+
+
 % Spatial discretization of conjunctive tissue
-% L = 0.1;   % Size of conjunctive tissue (length in dm)
-% Nx = 40; % Number of spatial grid points (in each direction if dim == 2)
 dx = L/Nx; % the grid size
 if dim == 1
     x = linspace(dx/2,L-dx/2,Nx);
@@ -31,7 +35,6 @@ else
 end
 
 % Time parameters
-% Tf = 2;   % Final time (days)
 Tp = 100; % Number of time points to store solution
 
 % Parameter values

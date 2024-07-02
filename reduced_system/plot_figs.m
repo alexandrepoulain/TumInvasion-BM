@@ -146,7 +146,9 @@ for ii = 1:size(t_BM)
     hold off;
     grid on;
     xlabel('Conjunctive tissue $x$ (dm)')
-    ylabel('density (nM)')
+    ylabel('concentration (nM)')
+    title_str = sprintf('t = %f hours', t_BM(ii)/(60*60));
+    title(title_str)
     xlim([0, max(x)])
     ylim([0 25])
     %title(t_BM(ii)/tunit)
