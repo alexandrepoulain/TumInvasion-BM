@@ -10,7 +10,7 @@ These active enzymes are produced in inactive form by the senescent fibroblasts 
 
 The structure of the repository is the following:
 - parameters.m: contains the parameters values.
-- reduced_system/: contains codes for the simulations of the reduced system (in the article the equations for the teduced system are (3.1)-(3.4) coupled with (2.12)-(2.13) and transmission conditions (2.14) and (2.18)-(2.19)).
+- reduced_system/: contains codes for the simulations of the reduced system (in the article the equations for the reduced system are (3.1)-(3.4) coupled with (2.12)-(2.13) and transmission conditions (2.14) and (2.18)-(2.19)).
 - full_system/: contains the scripts and functions to simulate the full system of equations (in the article the equations corresponding to the full system are (2.1)-(2.13) with the transmission conditions (2.14) and (2.18)-(2.19)).
 - sensitivity_analysis/: this folder contains the scripts and function to run the sensitivity analysis. To run the main script, please see the instructions at the beginning of SFs_SensitivityAnalysis.m
 
